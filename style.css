@@ -2,11 +2,86 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: white;
 }
 
 :root{
     font-size: 62.5%;
+
+    --content-primary: #FFFFFF;
+    --content-secondary: #C7C9CC;
+    --content-tertiary: #D9D9D9;
+    --content-brand: #C58DE7;
+    --content-inverse: #030203;
+
+    --background-primary: #020202;
+    --background-secondary: #111012;
+    --background-tertiary: #24222E;
+    --background-brand: #C58DE7;
+    --background-gray: #3D3D3D;
+
+    --accent-pink: #D586E0;
+    --accent-blue: #91A1FA;
+    --accent-green: #77C0AF;
+    --accent-lime: #D1DC97;
+    --accent-red: #E9A9B3;
+
+    --gradient-border:linear-gradient(91deg, var(--accent-green) 0%, var(--accent-lime) 14.84%, var(--accent-red) 32.15%, var(--accent-pink) 65.79%, var(--accent-blue) 84.58%);
+    
+    --gradient-background:linear-gradient(91deg, var(--accent-pink) 0%, var(--accent-blue) 98.93%);
+
+    --gradient-content: linear-gradient(90deg, var(--content-secondary) 0%, var(--background-gray) 100%);
 }
+
 body{
     font-size: 1.6rem;
+    background-color: black;
+}
+
+
+main{
+    width: 109.8rem;
+    padding: 8rem 13.4rem 0;
+    margin: 0 auto;
+    
+    header{
+        margin-bottom: 9.25rem;
+    }
+
+    #app{
+        display: flex;
+        gap: 10.8rem;
+        
+        .box1{
+            display: flex;
+            flex-direction: column;
+            gap: 3.8rem;
+            min-width: 50.8rem;
+
+            .box1-header{
+                span{
+                /* overline */
+                font-family: "Roboto";
+                font-weight: 700;
+                line-height: 150%;
+                text-transform: uppercase;
+                background: var(--gradient-content);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                margin-bottom: 1.2rem;
+                }
+
+                h1{
+                    color: var(--content-primary);
+                    font-family: Sora;
+                    font-size: 7rem;
+                    font-style: normal;
+                    font-weight: 800;
+                    line-height: 130%;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
 }
