@@ -82,6 +82,34 @@ main{
                     text-transform: uppercase;
                 }
             }
+
+            .box-feedback{
+                display: flex;
+                flex-direction: column;
+                gap: 3.6rem;
+
+                .feedback{
+                    display: flex;
+                    align-items: flex-start;
+                    gap: .8rem;
+
+                    div p:nth-child(1){
+                        color: var(--content-brand);
+                        font-family: "Roboto Flex";
+                        font-size: 1.4rem;
+                        font-weight: 500;
+                        line-height: 150%;
+                    }
+                    
+                    div p:nth-child(2){
+                        color: var(--content-secondary);
+                        font-family: "Roboto Flex";
+                        font-size: 1.2rem;
+                        font-weight: 500;
+                        line-height: 150%;
+                    }
+                }
+            }
         }
     }
 }
