@@ -30,18 +30,42 @@ form.addEventListener("submit", (e)=>{
         alert("por favor digite um valor válido");
         return
     }
-    if(qtdNumbers > 0){
+    if(qtdNumbers < 0){
         alert("por favor digite os valores corretamente")
         return
     }
-    if(qtdMinNumber <= qtdMaxNumber){
+    if(qtdMinNumber >= qtdMaxNumber){
         alert("por favor digite os valores corretamente")
         return
     }
 
-    console.log(qtdNumbers, qtdMinNumber, qtdMaxNumber)
+    let checkboxStatus = checkbox.checked
     
+    function genNumbers(qtdNumbers, qtdMinNumber, qtdMaxNumber) {
+        let randomNumber = [];
+
+        if (checkboxStatus && qtdNumbers > (qtdMaxNumber - qtdMinNumber + 1)) {
+            alert("Não é possível gerar tantos números sem repetição dentro do intervalo especificado.");
+            return [];
+        }
+
+        while (randomNumber.length < qtdNumbers) {
+
+            let numberChoose = Math.floor(Math.random() * (qtdMaxNumber - qtdMinNumber + 1)) + qtdMinNumber;
+
+            while (checkboxStatus && randomNumber.includes(numberChoose)) {
+
+                numberChoose = Math.floor(Math.random() * (qtdMaxNumber - qtdMinNumber + 1)) + qtdMinNumber;
+                
+            }
+            randomNumber.push(numberChoose);
+
+        }
+        return randomNumber
+    }
     
+    let  allNumbersChoosed= genNumbers(qtdNumbers,qtdMinNumber,qtdMaxNumber);
+
     formClear()
 })
 
