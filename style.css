@@ -30,6 +30,20 @@
     --gradient-background:linear-gradient(91deg, var(--accent-pink) 0%, var(--accent-blue) 98.93%);
 
     --gradient-content: linear-gradient(90deg, var(--content-secondary) 0%, var(--background-gray) 100%);
+    .align{
+        text-align: center;
+    }
+
+    .numbersSorted{
+        color: var(--content-brand);
+        text-align: center;
+        font-family: "Roboto Mono";
+        font-size: 4.8rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 150%;
+        text-transform: uppercase;
+    }
 }
 
 body{

@@ -1,4 +1,5 @@
 const form = document.getElementById("form");
+const formHeader = document.querySelector(".form-header");
 const h2 = document.querySelector(".form-header h2");
 const span = document.querySelector(".form-header span");
 const numbers = document.getElementById("numbers");
@@ -6,7 +7,7 @@ const minNumber = document.getElementById("min-number");
 const maxNumber = document.getElementById("max-number");
 const checkbox = document.getElementById("checkbox");
 const btn = document.querySelector(".btn");
-const result = document.querySelector(".inputs-wrapper");
+const result = document.querySelector(".inputs-wrapper .inputs");
 
 numbers.oninput = () =>{
     numbers.value = numbers.value.replace(/\D/g, "")
@@ -64,9 +65,27 @@ form.addEventListener("submit", (e)=>{
         return randomNumber
     }
     
-    let  allNumbersChoosed= genNumbers(qtdNumbers,qtdMinNumber,qtdMaxNumber);
+    let allNumbersChoosed= genNumbers(qtdNumbers,qtdMinNumber,qtdMaxNumber);
 
-    formClear()
+    formHeader.classList.add("align")
+    h2.textContent = "resultado do sorteio"
+    span.textContent = "1° RESULTADO"
+    result.innerHTML= ""
+    
+    for(i = 0; i < allNumbersChoosed.length; i++){
+
+        const div = document.createElement("div")
+        div.classList.add("numbersSorted")
+
+        div.textContent = `${allNumbersChoosed[i]}`
+
+        result.appendChild(div)
+
+        //ainda tem coisas a aprimorar
+    }
+
+
+    // formClear()
 })
 
 function formClear(){
