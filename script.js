@@ -6,8 +6,12 @@ const numbers = document.getElementById("numbers");
 const minNumber = document.getElementById("min-number");
 const maxNumber = document.getElementById("max-number");
 const checkbox = document.getElementById("checkbox");
+const checkboxContent = document.querySelector(".switch");
 const btn = document.querySelector(".btn");
-const result = document.querySelector(".inputs-wrapper .inputs");
+const resultContent = document.querySelector(".inputs-wrapper");
+const resultContentInputs = document.querySelector(".inputs-wrapper .inputs");
+
+const result = document.querySelector("#result");
 
 numbers.oninput = () =>{
     numbers.value = numbers.value.replace(/\D/g, "")
@@ -28,7 +32,7 @@ form.addEventListener("submit", (e)=>{
     let qtdMaxNumber = parseInt(maxNumber.value)
     
     if(isNaN(qtdNumbers) || isNaN(qtdMinNumber) || isNaN(qtdMaxNumber)){
-        alert("por favor digite um valor válido");
+        console.log("por favor digite um valor válido");
         return
     }
     if(qtdNumbers < 0){
@@ -41,6 +45,8 @@ form.addEventListener("submit", (e)=>{
     }
 
     let checkboxStatus = checkbox.checked
+
+    checkboxContent.classList.add("hide")
     
     function genNumbers(qtdNumbers, qtdMinNumber, qtdMaxNumber) {
         let randomNumber = [];
@@ -70,7 +76,10 @@ form.addEventListener("submit", (e)=>{
     formHeader.classList.add("align")
     h2.textContent = "resultado do sorteio"
     span.textContent = "1° RESULTADO"
-    result.innerHTML= ""
+
+    result.classList.remove("hide")
+    resultContentInputs.classList.add("hide")
+    result.classList.add("center")
     
     for(i = 0; i < allNumbersChoosed.length; i++){
 
@@ -81,11 +90,22 @@ form.addEventListener("submit", (e)=>{
 
         result.appendChild(div)
 
-        //ainda tem coisas a aprimorar
     }
+    btn.innerHTML = `SORTEAR NOVAMENTE <img src="./assets/icons/Frame.svg">`
 
-
-    // formClear()
+    btn.addEventListener("click", ()=>{
+            formHeader.classList.remove("align")
+            h2.textContent = "Quero sortear:"
+            span.textContent = 'defina o intervalo e a quantidade de números, clique em "Sortear" e veja os resultados na tela. É rápido e fácil!'
+    
+            result.classList.add("hide")
+            resultContentInputs.classList.remove("hide")
+            result.classList.remove("center")
+            checkboxContent.classList.remove("hide")
+            result.innerHTML = ""
+        })
+        formClear()
+    
 })
 
 function formClear(){

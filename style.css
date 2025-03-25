@@ -33,6 +33,14 @@
     .align{
         text-align: center;
     }
+    .center{
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+    }
+    .hide{
+        display: none !important;
+    }
 
     .numbersSorted{
         color: var(--content-brand);
